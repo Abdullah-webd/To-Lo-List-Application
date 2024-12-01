@@ -3,26 +3,27 @@ window.addEventListener('load', function () {
     const input = document.querySelector('#new-task-input');
     const list_el = document.querySelector('#tasks');
 
-    // Load tasks from localStorage when the page loads
+    // Load tasks from localStorage
     const savedTasks = JSON.parse(localStorage.getItem('tasks')) || [];
-    savedTasks.forEach(task => createTaskElement(task));
+    savedTasks.forEach(task => createTaskElement(task.text, task.date));
 
     form.addEventListener('submit', function (e) {
         e.preventDefault();
         const task = input.value.trim();
+        const date = new Date().toLocaleDateString(); // Get the current date
         if (task === '') {
             alert('Please enter a task');
             return;
         }
-        createTaskElement(task);
+        createTaskElement(task, date);
 
-        // Save the task in localStorage
-        savedTasks.push(task);
+        // Save the task and date in localStorage
+        savedTasks.push({ text: task, date: date });
         localStorage.setItem('tasks', JSON.stringify(savedTasks));
         input.value = ''; // Clear the input field
     });
 
-    function createTaskElement(task) {
+    function createTaskElement(taskText, taskDate) {
         const task_el = document.createElement('div');
         task_el.classList.add('task');
 
@@ -32,7 +33,7 @@ window.addEventListener('load', function () {
         const task_input_el = document.createElement('input');
         task_input_el.classList.add('text');
         task_input_el.type = 'text';
-        task_input_el.value = task;
+        task_input_el.value = `${taskText} (${taskDate})`; // Include task text and date
         task_input_el.setAttribute('readonly', 'readonly');
         task_content_el.appendChild(task_input_el);
 
@@ -59,10 +60,10 @@ window.addEventListener('load', function () {
                 task_input_el.setAttribute('readonly', 'readonly');
                 edit_el.textContent = 'Edit';
 
-                // Update localStorage with edited task
-                const index = savedTasks.indexOf(task);
+                // Update localStorage with the edited task
+                const index = savedTasks.findIndex(item => item.text === taskText && item.date === taskDate);
                 if (index !== -1) {
-                    savedTasks[index] = task_input_el.value;
+                    savedTasks[index].text = task_input_el.value.replace(` (${taskDate})`, '');
                     localStorage.setItem('tasks', JSON.stringify(savedTasks));
                 }
             }
@@ -73,7 +74,7 @@ window.addEventListener('load', function () {
             list_el.removeChild(task_el);
 
             // Remove the task from localStorage
-            const index = savedTasks.indexOf(task);
+            const index = savedTasks.findIndex(item => item.text === taskText && item.date === taskDate);
             if (index !== -1) {
                 savedTasks.splice(index, 1);
                 localStorage.setItem('tasks', JSON.stringify(savedTasks));

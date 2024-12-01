@@ -47,10 +47,27 @@ input[type="text"] {
     transition: all 0.3s ease-in-out;
 }
 
+input[type="date"] {
+    padding: 10px;
+    font-size: 1rem;
+    width: 250px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
 input[type="text"]:focus {
     border-color: #007bff; /* Changed to blue */
     box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
 }
+
+input[type="date"]:focus {
+    border-color: #007bff; /* Changed to blue */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+
 
 /* Submit button styling */
 input[type="submit"] {
@@ -197,4 +214,69 @@ button.edbutton:active {
         box-shadow: 0 0 20px rgba(0, 123, 255, 1);
     }
 }
+/* Task container styles */
+.task {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 15px;
+    padding: 10px;
+    background-color: #1c1c1c; /* Dark gray for a modern look */
+    color: white;
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Task hover effect */
+.task:hover {
+    transform: scale(1.02);
+    box-shadow: 0 6px 10px rgba(0, 0, 0, 0.5);
+}
+
+/* Input field inside the task */
+.task .text {
+    flex-grow: 1;
+    font-size: 16px;
+    background: transparent;
+    color: white;
+    border: none;
+    outline: none;
+}
+
+/* Buttons */
+.task button {
+    margin-left: 10px;
+    background-color: #007BFF; /* Blue color for buttons */
+    color: white;
+    padding: 5px 10px;
+    border: none;
+    border-radius: 3px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease;
+}
+
+.task button:hover {
+    background-color: #0056b3; /* Darker blue for hover effect */
+    transform: scale(1.1);
+}
+
+.task button:active {
+    transform: scale(1.05);
+}
+
+/* Input field styles */
+#new-task-input {
+    width: 100%;
+    padding: 10px;
+    font-size: 16px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+}
+
+#tasks {
+    margin-top: 20px;
+}
+
 
