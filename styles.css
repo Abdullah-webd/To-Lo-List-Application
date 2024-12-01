@@ -1,0 +1,200 @@
+/* Reset some default browser styles */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+/* Apply a black background and general text styles */
+body {
+    font-family: 'Arial', sans-serif;
+    background-color: #000; /* Changed to black */
+    color: #fff; /* Text color will be white for contrast */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    flex-direction: column;
+}
+
+/* Header styling */
+header {
+    background-color: #007bff; /* Changed to blue */
+    width: 100%;
+    text-align: center;
+    padding: 20px;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    color: white;
+    font-size: 2rem;
+    margin-bottom: 10px;
+}
+
+/* Form styling */
+form {
+    margin-top: 20px;
+}
+
+input[type="text"] {
+    padding: 10px;
+    font-size: 1rem;
+    width: 250px;
+    border: 2px solid #ccc;
+    border-radius: 5px;
+    outline: none;
+    transition: all 0.3s ease-in-out;
+}
+
+input[type="text"]:focus {
+    border-color: #007bff; /* Changed to blue */
+    box-shadow: 0 0 5px rgba(0, 123, 255, 0.3);
+}
+
+/* Submit button styling */
+input[type="submit"] {
+    background-color: #007bff; /* Changed to blue */
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-left: 10px;
+}
+
+input[type="submit"]:hover {
+    transform: scale(1.05);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+/* Task List Section */
+.task-list {
+    width: 100%;
+    max-width: 600px;
+    margin-top: 40px;
+    text-align: center;
+}
+
+.task-list h1 {
+    font-size: 1.5rem;
+    color: #fff; /* White text to contrast with black background */
+    margin-bottom: 20px;
+}
+
+/* Individual task styling */
+.task {
+    background-color: #333; /* Dark background for tasks */
+    border-radius: 8px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    margin: 10px 0;
+    padding: 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.task:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+}
+
+/* Task input field */
+.task input[type="text"] {
+    border: none;
+    background: transparent;
+    font-size: 1rem;
+    flex-grow: 1;
+    color: #fff; /* White text inside the task */
+    padding: 8px;
+    text-align: left;
+}
+
+/* Buttons for editing and deleting tasks */
+button.edbutton {
+    background-color: #007bff; /* Changed to blue */
+    color: white;
+    border: none;
+    padding: 5px 15px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 1rem;
+    margin-left: 10px;
+    transition: all 0.3s ease;
+}
+
+button.edbutton:hover {
+    transform: scale(1.1);
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.1);
+}
+
+button.edbutton:active {
+    transform: scale(0.95);
+}
+
+/* Delete button */
+
+
+/* Animations for tasks */
+@keyframes fadeIn {
+    0% {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Adding animation to task list */
+#tasks {
+    animation: fadeIn 0.5s ease-out;
+}
+.nextpage{
+    text-decoration: none;
+    color: white;
+    
+}
+
+.linkbutton {
+    background-color: #007BFF; /* A nice blue color */
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+/* Hover effect */
+.linkbutton:hover {
+    background-color: #0056b3; /* Darker blue for hover */
+    transform: scale(1.1); /* Slightly enlarge the button */
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3); /* Add shadow for depth */
+}
+
+/* Click effect */
+.linkbutton:active {
+    transform: scale(1.05); /* Slightly shrink back when clicked */
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2); /* Reduce shadow */
+}
+
+/* Animated glow effect */
+.linkbutton.glow {
+    animation: glowEffect 2s infinite alternate;
+}
+
+@keyframes glowEffect {
+    from {
+        box-shadow: 0 0 10px rgba(0, 123, 255, 0.5);
+    }
+    to {
+        box-shadow: 0 0 20px rgba(0, 123, 255, 1);
+    }
+}
+
